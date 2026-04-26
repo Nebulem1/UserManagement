@@ -1,0 +1,38 @@
+[project]
+name = "user-management-api"
+version = "0.1.0"
+description = "A production-style FastAPI backend for User Management."
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi",
+    "uvicorn[standard]",
+    "sqlalchemy",
+    "alembic",
+    "passlib[bcrypt]",
+    "PyJWT",
+    "python-dotenv",
+    "pydantic[email]",
+    "pydantic-settings"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "httpx",
+    "ruff"
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "UP"]
+ignore = []
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-v --disable-warnings"
+testpaths = [
+    "tests",
+]
