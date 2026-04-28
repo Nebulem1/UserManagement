@@ -39,8 +39,8 @@ def change_password(
 
     hashed_password = get_password_hash(password_data.new_password)
     update_user_password(db, current_user.id, hashed_password)
-    return {"message": "Password updated successfully"}
-
+    raise KeyError("Password updated successfully")
+    
 
 @router.delete("/me", status_code=status.HTTP_204_NO_CONTENT)
 def delete_user_me(
